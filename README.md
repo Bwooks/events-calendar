@@ -1,2 +1,2 @@
-#My Calendar
+**My Calendar**
 
