@@ -2,7 +2,7 @@ import Calendar from './Calendar'
 import {connect} from 'react-redux'
 import {initSchedules} from '../../models/Calendar'
 import {actionTypes} from '../../models/constants.js' 
-import {setScheduleIds, setActiveMonth, getCurrentDateTime, createSchedules} from '../../models/Calendar.js'
+import {setScheduleIds, setActiveMonth, getCurrentDateTime, createSchedules, initCalendar} from '../../models/Calendar.js'
 
 const mapStateToProps = (state) => {
     return {
@@ -18,7 +18,8 @@ const mapDispatchToProps = (dispatch) => {
        setScheduleIds: () => dispatch(setScheduleIds()),
        setActiveMonth: (month)=> dispatch(setActiveMonth(month)), 
        getCurrentDateTime: () => dispatch(getCurrentDateTime()),
-       createSchedules: (scheduleIds) => dispatch(createSchedules(scheduleIds))
+       createSchedules: (scheduleIds) => dispatch(createSchedules(scheduleIds)),
+        initCalendar: () => dispatch(initCalendar())
     }
 }
 

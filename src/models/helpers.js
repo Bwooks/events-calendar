@@ -6,7 +6,7 @@ const getDaysInMonth = () => {
 
 export const setScheduleIds = () => {
     const daysInMonth = getDaysInMonth()
-    let scheduleIds = new Array(daysInMonth).fill()
+    let scheduleIds = new Array(daysInMonth).fill(0)
     let result = scheduleIds.map((scheduleId, index)=>{
         return index+1
     })
@@ -14,7 +14,7 @@ export const setScheduleIds = () => {
 }
 
 export const setActiveMonth = (month) => {
-    const activeMonth = month || "January"
+    const activeMonth = month || moment().format("MMMM")
     return activeMonth
 }
 
@@ -24,9 +24,15 @@ export const getCurrentDateTime = () => {
 }
 
 export const createSchedules = (state, action) => {
-    let schedules = {}
+    const scheduleIds = setScheduleIds()
+    const schedulesById = {}
+    scheduleIds.forEach((id, index) => {
+        schedulesById[id] = {
+            events: []
+        }
+    })
 
-    return schedules
+    return schedulesById
 }
 
 export const initCalendar = () => {

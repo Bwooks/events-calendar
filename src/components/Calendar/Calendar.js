@@ -6,7 +6,6 @@ import c from 'classnames'
 
 class Calendar extends Component {
     componentWillMount() {
-        this.props.createSchedules(this.props.scheduleIds)
     }
     render() {
         console.log(this.props)
